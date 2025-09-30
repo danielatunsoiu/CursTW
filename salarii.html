@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Grafic Salarii Web</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    canvas {
+      background: #fff;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h2>💰 Estimări Salarii: Web Designer vs Web Developer în România</h2>
+  <canvas id="salaryChart" width="600" height="400"></canvas>
+
+  <script>
+    const ctx = document.getElementById('salaryChart').getContext('2d');
+    const salaryChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Junior', 'Mid', 'Senior'],
+        datasets: [
+          {
+            label: 'Web Designer',
+            data: [4000, 6500, 9500],
+            backgroundColor: 'rgba(255, 159, 64, 0.7)',
+            borderColor: 'rgba(255, 159, 64, 1)',
+            borderWidth: 1
+          },
+          {
+            label: 'Web Developer',
+            data: [5800, 10000, 16000],
+            backgroundColor: 'rgba(54, 162, 235, 0.7)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Salariu Net (RON)'
+            }
+          }
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Comparativ Salarii Web Designer vs Web Developer (RO)'
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return `${context.dataset.label}: ${context.parsed.y} RON`;
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
