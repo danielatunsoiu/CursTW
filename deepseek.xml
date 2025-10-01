@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<databaseChangeLog  
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog  
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">  
+
+    <!-- Changeset 1: Creare tabelă -->  
+    <changeSet id="1" author="daniela.tunsoiu">
+		<precondition onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="users"/>
+			</not>
+		</precondition>
+        <createTable tableName="users">  
+            <column name="id" type="INT" autoIncrement="true">  
+                <constraints primaryKey="true" nullable="false"/>  
+            </column>  
+            <column name="username" type="VARCHAR(50)">  
+                <constraints nullable="false"/>  
+            </column>  
+            <column name="email" type="VARCHAR(100)">  
+                <constraints nullable="false" unique="true"/>  
+            </column>  
+			<column name="id_inregistrare" type="int">
+				<constraints nullable="false" references="inregistrare(id)" foreignKeyName="fk_id_inregistrare"/>
+			</column>
+        </createTable>  
+    </changeSet>  
+
+    <!-- Changeset 2: Adăugare coloană -->  
+    <changeSet id="2" author="daniela.tunsoiu">  
+        <addColumn tableName="users">  
+            <column name="registration_date" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"/>  
+        </addColumn>  
+    </changeSet>  
+
+    <!-- Changeset 3: Inserare date inițiale -->  
+    <changeSet id="3" author="daniela.tunsoiu">  
+        <insert tableName="users">  
+            <column name="username" value="admin"/>  
+            <column name="email" value="admin@example.com"/>  
+        </insert>  
+    </changeSet>  
+</databaseChangeLog>  
