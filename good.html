@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplu Bun – Semantic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:system-ui,Arial,sans-serif;margin:0;line-height:1.6}
+    header,footer{background:#f8fafc;border-bottom:1px solid #e5e7eb}
+    footer{border-top:1px solid #e5e7eb;border-bottom:0}
+    .wrap{max-width:900px;margin:0 auto;padding:16px}
+    nav a{margin-right:12px;color:#0a6cff;text-decoration:none;font-weight:600}
+    nav a:hover{text-decoration:underline}
+    main{padding:16px}
+    article{border:1px solid #e5e7eb;border-radius:10px;padding:12px;margin-bottom:16px;background:#fff}
+    img{max-width:100%;height:auto;border-radius:8px}
+    label{font-weight:600}
+    input{width:100%;padding:10px;border:1px solid #cfd7df;border-radius:6px}
+    button{background:#0a6cff;color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Blogul Meu</h1>
+    <nav aria-label="Navigație principală">
+      <a href="#acasa">Acasă</a>
+      <a href="#articole">Articole</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="acasa">
+  <section id="articole" aria-label="Lista articole">
+    <article>
+      <header>
+        <h2>Primul articol</h2>
+        <p><time datetime="2025-10-15">15 octombrie 2025</time></p>
+      </header>
+
+      <figure>
+        <img src="images.jpg" alt="Imagine generică pentru articol">
+        <figcaption>Fig. 1 – Imagine ilustrativă a articolului.</figcaption>
+      </figure>
+
+      <p>Acesta este conținutul articolului, structurat corect, ușor de citit și de indexat.</p>
+
+      <footer>
+        <p class="lead">Autor: <strong>Andrei</strong></p>
+      </footer>
+    </article>
+  </section>
+
+  <section id="contact" aria-label="Formular de contact">
+    <h2>Contact</h2>
+    <form action="#" method="post">
+      
+        <label for="nume">Nume</label><br>
+        <input id="nume" name="nume" type="text" placeholder="Nume complet" required>
+      <br>
+	  <br>
+      
+        <label for="email">Email</label><br>
+        <input id="email" name="email" type="email" placeholder="email@exemplu.ro" required>
+      
+      <p><button type="submit">Trimite</button></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2025 Blogul Meu</p>
+  </div>
+</footer>
+
+</body>
+</html>

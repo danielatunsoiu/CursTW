@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portofoliul Meu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #222;
+      --muted: #666;
+      --brand: #0a6cff;
+      --surface: #f4f6f8;
+      --border: #dcdfe4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    header, footer {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 16px;
+    }
+    footer { border-top: 1px solid var(--border); border-bottom: none; }
+    header h1 { margin: 0 0 8px; }
+    nav a {
+      display: inline-block;
+      margin-right: 12px;
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    /* Layout principal */
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    /* pe ecrane mai late: conținut + aside */
+    @media (min-width: 900px) {
+      .layout {
+        grid-template-columns: 2fr 1fr;
+        align-items: start;
+      }
+    }
+
+    /* Conținut principal */
+    main section {
+      margin-bottom: 28px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+      background: #fff;
+    }
+    table, th, td {
+      border: 1px solid var(--border);
+    }
+    th, td { padding: 8px 10px; text-align: left; }
+    th { background: #f8fafc; }
+
+    /* Aside (sidebar) */
+    aside {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      position: sticky;
+      top: 16px;
+    }
+    aside h3 {
+      margin-top: 0;
+    }
+    .chip {
+      display: inline-block;
+      font-size: 12px;
+      padding: 4px 8px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      margin: 0 6px 6px 0;
+      background: #fbfdff;
+    }
+    .muted { color: var(--muted); font-size: 14px; }
+    .back-top {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .back-top:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<a id="top" aria-hidden="true"></a>
+
+<header>
+  <div class="wrap">
+    <h1>Portofoliul Meu</h1>
+    <nav aria-label="Navigație principală">
+      <a href="#despre">Despre mine</a>
+      <a href="#hobby">Hobby-uri</a>
+      <a href="#orar">Orar</a>
+      <a href="#multimedia">Multimedia</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <!-- CONȚINUT PRINCIPAL -->
+  <main id="content">
+    <!-- Secțiunea Despre -->
+    <section id="despre" aria-labelledby="titlu-despre">
+      <h2 id="titlu-despre">Despre mine</h2>
+      <p>
+        Bun venit pe pagina mea personală! Numele meu este <strong>Andrei Popescu</strong> și sunt pasionat
+        de tehnologie, design și dezvoltare web.
+      </p>
+      <img src="https://dianapps.com/blog/wp-content/uploads/2024/06/Add-a-heading-39.png" alt="Poză de copertă cu un peisaj modern" />
+      <p>
+        Îmi place să învăț lucruri noi și să dezvolt aplicații care ajută oamenii. Lucrez cu HTML5 semantic,
+        CSS modern (Flexbox și Grid) și JavaScript.
+      </p>
+    </section>
+
+    <!-- Secțiunea Hobby-uri -->
+    <section id="hobby" aria-labelledby="titlu-hobby">
+      <h2 id="titlu-hobby">Hobby-urile mele</h2>
+      <ul>
+        <li>Citit (non-ficțiune & SF)</li>
+        <li>Fotografie</li>
+        <li>Drumeții</li>
+        <li>Programare creativă</li>
+      </ul>
+    </section>
+
+    <!-- Secțiunea Orar -->
+    <section id="orar" aria-labelledby="titlu-orar">
+      <h2 id="titlu-orar">Orarul meu săptămânal</h2>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Zi</th>
+            <th scope="col">Activitate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Luni</td>
+            <td>Proiecte Web</td>
+          </tr>
+          <tr>
+            <td>Marți</td>
+            <td>PHP &amp; Laravel</td>
+          </tr>
+          <tr>
+            <td>Miercuri</td>
+            <td>Sport</td>
+          </tr>
+          <tr>
+            <td>Joi</td>
+            <td>JS &amp; API-uri</td>
+          </tr>
+          <tr>
+            <td>Vineri</td>
+            <td>Design &amp; UX</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Secțiunea Multimedia -->
+    <section id="multimedia" aria-labelledby="titlu-media">
+      <h2 id="titlu-media">Video preferat</h2>
+      <iframe
+        width="560" height="315"
+        src="https://www.youtube.com/embed/pTFZFxd4hOI"
+        title="YouTube video"
+        style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;">
+      </iframe>
+    </section>
+
+    <!-- Secțiunea Contact -->
+    <section id="contact" aria-labelledby="titlu-contact">
+      <h2 id="titlu-contact">Contactează-mă</h2>
+      <form action="submit.php" method="post">
+        <p class="muted">Câmpurile marcate sunt obligatorii.</p>
+
+        <label for="nume">Nume *</label><br />
+        <input type="text" id="nume" name="nume" required /><br /><br />
+
+        <label for="email">Email *</label><br />
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <label for="mesaj">Mesaj</label><br />
+        <textarea id="mesaj" name="mesaj" rows="4" cols="30"></textarea><br /><br />
+
+        <button type="submit">Trimite</button>
+      </form>
+
+      <!-- Link intern: Mergi la început -->
+      <a href="#top" class="back-top">⬆️ Mergi la începutul paginii</a>
+    </section>
+  </main>
+
+  <!-- ASIDE (SIDEBAR) CU CONȚINUT SECUNDAR -->
+  <aside aria-labelledby="titlu-aside">
+    <h3 id="titlu-aside">Quick info</h3>
+    <p class="muted">Informații secundare / context suplimentar.</p>
+
+    <h4>Linkuri utile</h4>
+    <ul>
+      <li><a href="#despre">Despre mine</a></li>
+      <li><a href="#hobby">Hobby-uri</a></li>
+      <li><a href="#orar">Orar</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <h4>Tag-uri</h4>
+    <p>
+      <span class="chip">HTML5</span>
+      <span class="chip">CSS</span>
+      <span class="chip">JavaScript</span>
+      <span class="chip">Laravel</span>
+    </p>
+
+    <h4>Contact rapid</h4>
+    <p class="muted">Email: andrei@example.com<br/>Locație: Iași, RO</p>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2025 Portofoliul meu — Toate drepturile rezervate.</p>
+  </div>
+</footer>
+
+</body>
+</html>
