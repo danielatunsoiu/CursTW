@@ -1,0 +1,169 @@
+/* ========== RESET & BAZE ========== */
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; border-radius: 8px; }
+
+/* Linkuri */
+a { color: #0a6cff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ========== HEADER / FOOTER ========== */
+header, footer {
+  background: #f4f6f8;
+  border-bottom: 1px solid #dcdfe4;
+  padding: 16px;
+  
+}
+footer { border-top: 1px solid #dcdfe4; border-bottom: 0; }
+header h1, footer p { margin: 0; color: blue;}
+
+/* Navigație simplă */
+nav a {
+  display: inline-block;
+  margin-right: 12px;
+  font-weight: bold;
+}
+
+/* ========== CONTAINER PAGINĂ ========== */
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ========== TITLURI / SECȚIUNI ========== */
+main section {
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #dcdfe4;
+}
+h2 { margin: 0 0 10px; color: blue;}
+
+/* ========== TABELE ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #f23;
+}
+th, td {
+  border: 1px solid #e1e5ea;
+  padding: 8px 10px;
+  text-align: left;
+}
+th { background: #f8fafc; }
+
+/* ===========Liste======*/
+
+ul {
+	list-style: none;
+	/*list-style-image: url('download.png');*/
+}
+li {
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-image: url('download.png');
+	background-position: 8px center;
+	padding-left: 35px;
+	line-height: 1.5;
+}
+
+/* ========== FORMULAR ========== */
+form { margin-top: 8px; }
+label { font-weight: bold; }
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cfd7df;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+button, input[type="submit"] {
+  background: #0a6cff;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover, input[type="submit"]:hover { background: #0856c7; }
+
+ .container {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+/* article {
+	flex-direction: column-reverse;
+    align-items: center;
+    margin: 2%;
+}
+*/
+article{
+	padding: 24px;
+    border: #cbcdfb;
+    border-style: groove;
+    width: 27%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin: 2% auto; /* auto pentru stânga-dreapta */
+}
+
+.muted { color: #666; font-size: 0.9rem; }
+
+/* ========== ASIDE (SIDEBAR) ========== */
+aside {
+  background: #ffffff;
+  border: 1px solid #dcdfe4;
+  border-radius: 10px;
+  padding: 16px;
+}
+aside h3 { margin-top: 0; }
+
+/* etichete (chips) */
+.chip {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid #dcdfe4;
+  border-radius: 999px;
+  margin: 0 6px 6px 0;
+  background: #fbfdff;
+}
+
+/* ========== LINK TOP ========== */
+.back-top {
+  display: inline-block;
+  margin-top: 16px;
+  font-weight: bold;
+}
+
+/* ========== LAYOUT RESPONSIVE BASIC ========== */
+/* Implicit (mobil): elementele sunt stivuite */
+#content, aside { width: 100%; }
+
+/* Pe ecrane mai late, punem două coloane cu inline-block */
+@media (min-width: 900px) {
+  #content {
+    display: inline-block;
+    width: 68%;
+    vertical-align: top;
+    margin-right: 2%;
+  }
+  aside {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+  }
+}

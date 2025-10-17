@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Curs 3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ID pentru link intern -->
+<a id="top"></a> 
+
+<header>
+  <h1>Portofoliul Meu cu CSS</h1>
+  <nav>
+    <a href="#despre">Despre mine</a>
+    <a href="#hobby">Hobby-uri</a>
+    <a href="#orar">Orar</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section id="despre">
+    <h2>Despre mine</h2>
+    <p>Bun venit pe pagina mea personală! Numele meu este <b>Daniela</b> și sunt pasionat de tehnologie, design și dezvoltare web.</p>
+    <img src="https://dianapps.com/blog/wp-content/uploads/2024/06/Add-a-heading-39.png" alt="Poză web dev" width='150px'>
+    <p>Îmi place să învăț lucruri noi și să dezvolt aplicații care ajută oamenii.</p>
+  </section>
+
+  <section id="hobby">
+    <h2>Hobby-urile mele</h2>
+    <ul>
+      <li>Citit</li>
+      <li>Fotografie</li>
+      <li>Drumeții</li>
+      <li>Programare creativă</li>
+    </ul>
+  </section>
+
+  <section id="orar">
+    <h2>Orarul meu săptămânal</h2>
+    <table>
+      <tr>
+        <th>Zi</th>
+        <th>Activitate</th>
+      </tr>
+      <tr>
+        <td>Luni</td>
+        <td>Proiecte Web</td>
+      </tr>
+      <tr>
+        <td>Marți</td>
+        <td>Învățare PHP & Laravel</td>
+      </tr>
+      <tr>
+        <td>Miercuri</td>
+        <td>Sport</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Video preferat</h2>
+    <!-- <iframe width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+            title="YouTube video" allowfullscreen></iframe>*/-->
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/Xrgk023l4lI?si=zs-cN2sKBCgccajO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </section>
+
+  <section id="contact" class="container">
+  <h2>Contactează-mă</h2>
+  <article>
+    
+    <form action="submit.php" method="post">
+      <label for="nume">Nume:</label><br>
+      <input type="text" id="nume" name="nume" required><br><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="mesaj">Mesaj:</label><br>
+      <textarea id="mesaj" name="mesaj" rows="4" cols="30"></textarea><br><br>
+
+      <input type="submit" value="Trimite">
+    </form>
+	</article>
+  </section>
+
+  <!-- Link intern: Mergi la început -->
+  <a href="#top" class="back-top">⬆️ Mergi la începutul paginii</a>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Portofoliul meu - Toate drepturile rezervate.</p>
+</footer>
+
+</body>
+</html>
