@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curs 1 – Interacțiune simplă cu JavaScript</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8fafc;
+      color: #1f2937;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    button {
+      background: #0a6cff;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #2563eb;
+    }
+    #mesaj {
+      margin-top: 20px;
+      padding: 10px;
+      background: #e0f2fe;
+      border-left: 4px solid #0a6cff;
+      border-radius: 4px;
+      display: none; /* ascuns la început */
+    }
+  </style>
+</head>
+<body>
+  <h1>Curs 1 – Primul contact cu DOM</h1>
+  <p>Deschide consola (F12 → Console) ca să vezi și mesajele din fundal.</p>
+
+  <button onclick="afiseazaMesaj()">Apasă-mă!</button>
+  <p id="mesaj"></p>
+
+  <script>
+    /***********************************************
+     * Acesta este primul exemplu în care JS
+     * interacționează cu HTML (prin DOM)
+     ***********************************************/
+
+    function afiseazaMesaj() {
+      console.log("Butonul a fost apăsat!");
+
+      // Obținem paragraful din HTML
+      const paragraf = document.getElementById("mesaj");
+
+      // Dacă e ascuns, îl afișăm și adăugăm text
+      if (paragraf.style.display === "none" || paragraf.innerText === "") {
+        paragraf.style.display = "block";
+        paragraf.innerText = "🎉 Salut! Tocmai ai făcut prima interacțiune cu JavaScript!";
+      } else {
+        // Dacă e deja vizibil, îl modificăm
+        paragraf.innerText = "🔄 Textul s-a schimbat! Apasă din nou pentru a-l ascunde.";
+        paragraf.style.display = "none"; // îl ascundem la al doilea click
+		console.log("Butonul a fost din nou apasat, nus e mai afiseaza nimic!")
+      }
+    }
+  </script>
+</body>
+</html>
