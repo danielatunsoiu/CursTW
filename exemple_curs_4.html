@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Noțiuni de Layout CSS – Curs 4</title>
+  <style>
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background: #f8fafc;
+      color: #1f2937;
+    }
+    h2 {
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 5px;
+    }
+    section {
+      background: #fff;
+      padding: 16px;
+      margin: 16px auto;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      max-width: 900px;
+    }
+    code {
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    .demo {
+      margin: 10px 0;
+      padding: 10px;
+      background: #f9fafb;
+      border: 1px dashed #cbd5e1;
+    }
+    .box {
+      background: #93c5fd;
+      color: #fff;
+      padding: 10px;
+      margin: 4px;
+      text-align: center;
+      border-radius: 5px;
+    }
+	/* ===== FLEXBOX EXAMPLES ===== */
+  .flex-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .flex-space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e0f2fe;
+    padding: 10px;
+  }
+
+  .flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .card {
+    flex: 1 1 200px;
+    background: #60a5fa;
+    padding: 10px;
+    border-radius: 8px;
+    color: #fff;
+  }
+  /* ===== GRID EXAMPLES ===== */
+  .grid-basic {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .grid-layout {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "nav nav"
+      "main aside"
+      "footer footer";
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+  }
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 700px) {
+    .grid-layout {
+      grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+      grid-template-columns: 1fr;
+    }
+    .flex-space {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+  }
+  
+  header  { grid-area: header; background: #93c5fd; padding: 10px; }
+  nav     { grid-area: nav; background: #fde68a; padding: 10px; }
+  main    { grid-area: main; background: #d9f99d; padding: 10px; }
+  aside   { grid-area: aside; background: #fef3c7; padding: 10px; }
+  footer  { grid-area: footer; background: #93c5fd; padding: 10px; }
+
+  </style>
+</head>
+<body>
+
+  <header style="background:#0a6cff;color:white;padding:16px;text-align:center">
+    <h1>Noțiuni de Layout CSS</h1>
+    <p>Display · Width/Height · Position · Grid/Flex</p>
+  </header>
+
+  <!-- 1. DISPLAY -->
+  <section id="display">
+    <h2>1️⃣ Display: block, inline, inline-block, none</h2>
+    <p>Controlăm modul în care elementele se aliniază pe pagină.</p>
+
+    <div class="demo">
+      <h3>Elemente <code>block</code></h3>
+      <div class="box">DIV 1</div>
+      <div class="box">DIV 2</div>
+
+      <h3>Elemente <code>inline</code></h3>
+      <span class="box" style="display:inline;background:#86efac;">SPAN 1</span>
+      <span class="box" style="display:inline;background:#86efac;">SPAN 2</span>
+
+      <h3>Elemente <code>inline-block</code></h3>
+      <div class="box" style="display:inline-block;width:100px;height:40px;background:#facc15;">A</div>
+      <div class="box" style="display:inline-block;width:100px;height:40px;background:#facc15;">B</div>
+
+      <h3>Element <code>display:none</code></h3>
+      <div class="box" style="display:none;">Nu se vede!</div>
+      <p>(Elementul este ascuns complet din fluxul paginii)</p>
+    </div>
+  </section>
+
+  <!-- 2. WIDTH / HEIGHT + BOX MODEL -->
+  <section id="dimensions">
+    <h2>2️⃣ Width & Height – Box Model</h2>
+    <p>Dimensiunile unui element sunt influențate de <code>width</code>, <code>height</code>, <code>padding</code>, <code>border</code> și <code>margin</code>.</p>
+
+    <div class="demo">
+      <div style="
+        width:200px;
+        height:100px;
+        padding:20px;
+        border:5px solid #1d4ed8;
+        margin:10px auto;
+        background:#bfdbfe;
+        text-align:center;">
+        Box Model!
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. POSITION -->
+  <section id="position">
+    <h2>3️⃣ Position – static, relative, absolute, fixed, sticky</h2>
+    <p>Poți controla poziția exactă a unui element în pagină.</p>
+
+    <div class="demo" style="position:relative;height:200px;background:#f3f4f6;">
+      <div class="box" style="position:static;background:#7dd3fc;">static</div>
+      <div class="box" style="position:relative;top:20px;left:40px;background:#fb923c;">relative</div>
+      <div class="box" style="position:absolute;top:10px;right:10px;background:#f87171;">absolute</div>
+      <div class="box" style="position:sticky;top:0;background:#34d399;">sticky (rămâne sus la scroll)</div>
+    </div>
+
+    <div class="box" style="position:fixed;bottom:10px;right:10px;background:#facc15;">🔝 sus (fixed)</div>
+  </section>
+
+  <!-- 4. FLOAT 
+  <section id="float">
+    <h2>4️⃣ Float – alinierea laterală a elementelor</h2>
+    <p>Cu <code>float</code> putem înconjura elemente cu text.</p>
+
+    <div class="demo clearfix">
+      <style>
+        img.fleft { float:left; width:150px; margin:10px; border-radius:8px; }
+        .clearfix::after { content:""; display:block; clear:both; }
+      </style>
+      <img src="https://picsum.photos/150" alt="Imagine floatată" class="fleft">
+      <p>
+        Acesta este un exemplu de folosire a proprietății <code>float</code>.
+        Textul se va înfășura în jurul imaginii.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Sed vulputate, justo vitae suscipit vulputate, purus magna tristique libero,
+        ac mattis lacus lorem at justo.
+      </p>
+    </div>
+  </section>
+  -->
+
+  <!-- 5. MINI-LAYOUT -->
+  <section id="mini-layout">
+    <h2>4️⃣ Mini-layout (fără Flex/Grid)</h2>
+    <p>Folosim doar noțiunile învățate până acum pentru a construi un layout simplu.</p>
+
+    <div class="demo" style="text-align:center;">
+      <header style="background:#93c5fd;padding:10px;margin:5px;">HEADER</header>
+      <nav style="background:#fde68a;padding:10px;margin:5px;">NAV</nav>
+
+      <main style="display:inline-block;width:68%;background:#d9f99d;padding:10px;margin:5px;vertical-align:top;">
+        MAIN CONTENT
+      </main>
+
+      <aside style="display:inline-block;width:27%;background:#fef3c7;padding:10px;margin:5px;vertical-align:top;">
+        SIDEBAR
+      </aside>
+
+      <footer style="background:#93c5fd;padding:10px;margin:5px;">FOOTER</footer>
+    </div>
+  </section>
+<!-- 6. FLEXBOX BASICS -->
+
+<section id="flexbox">
+  <h2>5️⃣ Flexbox – Layout unidimensional</h2>
+  <p><code>display: flex</code> transformă un container într-un „flex container”, iar elementele din interior devin „flex items”.</p>
+
+  <div class="demo flex-row">
+    <div class="box">A</div>
+    <div class="box">B</div>
+    <div class="box">C</div>
+	<div class="box">D</div>
+  </div>
+
+  <h3>Aliniere orizontală și verticală</h3>
+  <div class="demo flex-space">
+    <div class="box" style="width:100px;">Stânga</div>
+    <div class="box" style="width:100px;">Mijloc</div>
+    <div class="box" style="width:100px;">Dreapta</div>
+  </div>
+
+  <h3>Flex Wrap (rânduri multiple)</h3>
+  <div class="demo flex-wrap">
+    <div class="card">1</div>
+    <div class="card">2</div>
+    <div class="card">3</div>
+    <div class="card">5</div>
+  </div>
+</section>
+
+<!-- 7. FLEXBOX NAVBAR -->
+<section id="flex-nav">
+  <h2>6️⃣ Meniu de navigație cu Flexbox</h2>
+  <div class="demo">
+    <nav class="flex-space">
+      <div class="box" style="background:#2563eb;">Logo</div>
+      <ul style="list-style:none;display:flex;gap:10px;margin:0;padding:0;">
+        <li><a href="#" style="color:#2563eb;font-weight:600;text-decoration:none;">Acasă</a></li>
+        <li><a href="#" style="color:#2563eb;font-weight:600;text-decoration:none;">Despre</a></li>
+        <li><a href="#" style="color:#2563eb;font-weight:600;text-decoration:none;">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<!-- GRID BASICS -->
+<section id="grid">
+
+  <h2>7️⃣ Grid – Layout bidimensional</h2>
+  <p><code>display: grid</code> creează un container cu rânduri și coloane controlabile.</p>
+
+  <div class="demo grid-basic">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+  </div>
+  </section>
+  
+  <!-- COMBINARE FLEX + GRID -->
+  <section id="mix">
+  <h2>8️⃣ Combinare Flexbox + Grid</h2>
+  <p>Flexbox pentru elemente mici (carduri, meniuri), Grid pentru layout general.</p>
+
+  <div class="demo grid-layout">
+    <header>
+      <nav class="flex-space">
+        <span style="font-weight:bold;">Portofoliu</span>
+        <ul style="display:flex;list-style:none;gap:10px;margin:0;padding:0;">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Proiecte</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <nav>Meniu lateral</nav>
+    <main>
+      <div class="flex-wrap">
+        <div class="card">Proiect 1</div>
+        <div class="card">Proiect 2</div>
+        <div class="card">Proiect 3</div>
+      </div>
+    </main>
+    <aside>Info suplimentară</aside>
+    <footer>&copy; 2025 – Portofoliu Flex+Grid</footer>
+  </div>
+</section>
+  <footer style="text-align:center;padding:16px;color:#6b7280;">
+    © 2025 Curs Tehnologii Web · Exemplu Layout Basic
+  </footer>
+
+</body>
+</html>

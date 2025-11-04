@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <title>Responsive Design cu Media Queries – Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style-curs4.css">
+  
+</head>
+<body>
+  <div class="bp" aria-hidden="true">BP</div>
+
+  <header>
+    <div class="wrap">
+      <h1>Responsive Design – Media Queries</h1>
+      <p class="muted">Mobile-first · Breakpoints · Preferințe utilizator</p>
+      <nav aria-label="Navigație">
+        <ul>
+          <li><a href="#intro">Intro</a></li>
+          <li><a href="#cards">Carduri</a></li>
+          <li><a href="#aside">Aside</a></li>
+          <li><a href="#footer">Footer</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap layout">
+    <main id="intro">
+      <section class="hero">
+        <h2>Mobile-first: stil de bază pentru telefon</h2>
+        <p>Pe măsură ce ecranul crește, adăugăm reguli cu <code>@media (min-width: ...)</code> ca să extindem layout-ul.</p>
+        <ul>
+          <li>Nav: vertical → orizontal (≥480px)</li>
+          <li>Layout: 1 col → 2 coloane (≥768px)</li>
+          <li>Grid carduri: 1 → 2 → 3 coloane (≥768 / ≥1024)</li>
+        </ul>
+      </section>
+
+      <section id="cards">
+        <h2>Carduri responsive</h2>
+        <div class="cards">
+          <article class="card">
+            <img src="https://picsum.photos/600/360?random=1" alt="Imagine demo 1">
+            <div class="body">
+              <h3>Card 1</h3>
+              <p class="muted">Pe mobil: 1 pe rând • Tabletă: 2 • Desktop: 3</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/600/360?random=2" alt="Imagine demo 2">
+            <div class="body">
+              <h3>Card 2</h3>
+              <p class="muted">Grid controlat prin media queries</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/600/360?random=3" alt="Imagine demo 3">
+            <div class="body">
+              <h3>Card 3</h3>
+              <p class="muted">Container stabil, imagini 100% lățime</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <aside id="aside" aria-label="Informații">
+      <h3>Aside (sidebar)</h3>
+      <p class="muted">Pe mobil stă sub conținut, iar peste 768px apare în dreapta.</p>
+      <ul>
+        <li>Breakpoints mobile-first</li>
+        <li>Tipografie fluidă</li>
+        <li>Dark mode (preferință utilizator)</li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer id="footer">
+    <div class="wrap">
+      <p>&copy; 2025 Responsive Demo · Media Queries</p>
+    </div>
+  </footer>
+</body>
+</html>
