@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Curs 7 – JavaScript: DOM + Evenimente</title>
+  <script src="script-c7.js" defer></script>
+  <style>
+    :root {
+      --bg:#ffffff; --ink:#1f2937; --muted:#6b7280; --brand:#0a6cff;
+      --surface:#f8fafc; --border:#e5e7eb; --ok:#10b981; --warn:#f59e0b; --err:#ef4444;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+    header,footer{background:var(--surface);border-bottom:1px solid var(--border)}
+    footer{border-top:1px solid var(--border);border-bottom:0}
+    .wrap{max-width:1100px;margin:0 auto;padding:16px}
+    h1,h2{margin:0 0 10px}
+    .grid{display:grid;gap:16px}
+    @media (min-width:900px){ .grid{grid-template-columns:2fr 1fr} }
+    section{border:1px solid var(--border);border-radius:10px;background:#fff;padding:16px}
+    code,kbd{background:#f3f4f6;padding:2px 6px;border-radius:6px}
+    .btn{background:var(--brand);color:#fff;border:0;border-radius:8px;padding:10px 14px;cursor:pointer}
+    .btn:hover{filter:brightness(0.95)}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .card{border:1px solid var(--border);border-radius:10px;padding:12px}
+    .hidden{display:none !important}
+    .highlight{background:#fffbeb;border:1px solid #fde68a}
+    .pill{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:2px 8px;margin-right:6px;font-size:12px;background:#fbfdff}
+    input,button,textarea{font:inherit}
+    input[type="text"], input[type="email"]{
+      width:100%; padding:10px; border:1px solid #cfd7df; border-radius:8px;
+    }
+    .msg{border-left:4px solid var(--ok); background:#ecfdf5; padding:10px; border-radius:8px}
+    .warn{border-left:4px solid var(--warn); background:#fffbeb}
+    .err{border-left:4px solid var(--err); background:#fef2f2}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Curs 7 – JavaScript: DOM + Evenimente</h1>
+    <p class="muted">Selectori · Conținut · Stil · Clase · Evenimente · Formulare · Mini-proiect</p>
+  </div>
+</header>
+
+<main class="wrap grid">
+  <!-- Coloana principală -->
+  <div>
+    <!-- 1. DOM & selectori -->
+    <section id="s1">
+      <h2>1) DOM & Selectori</h2>
+      <p>Exersăm <code>getElementById</code>, <code>querySelector</code>, <code>querySelectorAll</code>.</p>
+
+      <div class="card">
+        <h3 id="titlu">Salut! Eu sunt titlul</h3>
+        <p class="muted">Paragraful A</p>
+        <p class="muted">Paragraful B</p>
+        <div class="row">
+          <button class="btn" id="btn-log">Loghează elemente</button>
+          <button class="btn" id="btn-hi">Schimbă titlul</button>
+        </div>
+      </div>
+
+      <div id="log" class="card msg" aria-live="polite" style="margin-top:10px;">
+        <strong>Log:</strong>
+        <div id="log-body" style="white-space:pre-wrap;"></div>
+      </div>
+    </section>
+
+    <!-- 2. Conținut, stil, clase -->
+    <section id="s2">
+      <h2>2) Modificare conținut, stil și clase</h2>
+      <div class="card" id="box">
+        <p id="text">Acesta este un text care va fi modificat.</p>
+        <div class="row">
+          <button class="btn" id="btn-text">innerText → „Salut din JS!”</button>
+          <button class="btn" id="btn-html">innerHTML → <em>Text cu stil</em></button>
+          <button class="btn" id="btn-style">Schimbă stil (culoare & mărime)</button>
+          <button class="btn" id="btn-class">Toggle clasă <code>.highlight</code></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Evenimente (click, mouseover) -->
+    <section id="s3">
+      <h2>3) Evenimente: click, mouseover</h2>
+      <div class="card">
+        <button class="btn" id="buton-click">Apasă-mă</button>
+        <span id="status" class="pill">status: inactiv</span>
+        <div id="hover-zone" class="card" style="margin-top:12px;">
+          Plimbă mouse-ul aici (mouseover / mouseout).
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Formulare: citire valori + prevenire submit -->
+    <section id="s4">
+      <h2>4) Formulare: citire valori & validare simplă</h2>
+      <form id="contact" class="card">
+        <div class="row">
+          <div style="flex:1 1 260px;">
+            <label for="nume">Nume</label><br/>
+            <input id="nume" name="nume" type="text" placeholder="Nume complet" />
+          </div>
+          <div style="flex:1 1 260px;">
+            <label for="email">Email</label><br/>
+            <input id="email" name="email" type="email" placeholder="email@exemplu.ro" />
+          </div>
+        </div>
+        <div style="margin-top:10px;">
+          <label for="mesaj">Mesaj</label><br/>
+          <textarea id="mesaj" name="mesaj" rows="3" placeholder="Salut!"></textarea>
+        </div>
+        <div class="row" style="margin-top:12px;">
+          <button class="btn" type="submit">Trimite</button>
+          <button class="btn" type="button" id="preview">Preview</button>
+        </div>
+        <p id="feedback" class="msg hidden" style="margin-top:10px;"></p>
+      </form>
+    </section>
+
+    <!-- 5. Mini-proiect: schimbă tema -->
+    <section id="s5">
+      <h2>5) Mini-proiect: „Schimbă tema”</h2>
+      <p>Un buton care alternează între <em>light</em> și <em>dark</em> schimbând stilul paginii.</p>
+      <button class="btn" id="tema">Schimbă tema</button>
+      <span id="tema-status" class="pill">tema: light</span>
+    </section>
+  </div>
+
+  <!-- Coloana dreaptă / Aside -->
+  <aside>
+    <section>
+      <h2>Notițe</h2>
+      <ul>
+        <li><code>document.getElementById()</code> – rapid pentru ID.</li>
+        <li><code>document.querySelector()</code> – orice selector CSS.</li>
+        <li><code>innerText/innerHTML</code> – conținut.</li>
+        <li><code>style</code> & <code>classList</code> – stil & clase.</li>
+        <li><code>addEventListener()</code> – evenimente moderne.</li>
+        <li><code>preventDefault()</code> – oprește submit-ul implicit.</li>
+      </ul>
+      <p class="muted">Deschide <strong>Consola</strong> (F12 → Console) ca să vezi log-urile.</p>
+    </section>
+  </aside>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2025 – Curs JS DOM & Evenimente</p>
+  </div>
+</footer>
+
+</body>
+</html>
