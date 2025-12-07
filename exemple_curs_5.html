@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curs 5 – Introducere în JavaScript</title>
+</head>
+<body>
+  <h1 style="font-family: system-ui;">Curs 5 – Introducere în JavaScript</h1>
+  <p>Deschide consola browserului (F12 → Console) pentru a vedea rezultatele.</p>
+
+  <!-- Scriptul nostru extern -->
+  <script>
+  /***************************************************
+   * CURS 5 – INTRODUCERE ÎN JAVASCRIPT
+   * ----------------------------------------------
+   * În acest fișier sunt toate exemplele de bază:
+   *  - Cum se scrie și se rulează cod JS
+   *  - Variabile și tipuri de date
+   *  - Operatorii de bază
+   *  - Instrucțiuni condiționale
+   *  - Funcții simple
+   *  - Bucle
+   ***************************************************/
+
+  // ===============================
+  // Salut din JavaScript
+  // ===============================
+  console.log("Salut din JavaScript!");
+  console.log("Acesta este primul mesaj din consola browserului.");
+
+  // ===============================
+  // Variabile și tipuri de date
+  // ===============================
+  console.log("=== VARIABILE ===");
+
+  // Declararea variabilelor
+  let nume = "Andrei";      // text (string)
+  const varsta = 22;        // număr (constantă)
+  let activ = true;         // boolean
+
+  console.log("Nume:", nume);
+  console.log("Vârstă:", varsta);
+  console.log("Activ:", activ);
+
+  // Tipuri de date
+  let pret = 12.5;          // number
+  let cantitate = 3;
+  let total = pret * cantitate; // operator de înmulțire
+  console.log("Total:", total, "lei");
+
+  // Schimbarea valorilor
+  pret = 10; // putem schimba, pentru că e 'let'
+  console.log("Preț actualizat:", pret);
+
+  // ===============================
+  // 3️⃣ Operatorii de bază
+  // ===============================
+  console.log("=== OPERATORI ===");
+
+  let a = 10;
+  let b = 3;
+
+  console.log("a + b =", a + b);
+  console.log("a - b =", a - b);
+  console.log("a * b =", a * b);
+  console.log("a / b =", a / b);
+  console.log("a % b =", a % b); // restul împărțirii
+
+  // Comparare
+  console.log("a > b ?", a > b);
+  console.log("a == '10' ?", a == "10");   // compară doar valoarea
+  console.log("a === '10' ?", a === "10"); // compară și tipul
+
+  // Operatorii logici
+  console.log("true && false =", true && false);
+  console.log("true || false =", true || false);
+  console.log("!true =", !true);
+
+  // ===============================
+  // 4️⃣ Instrucțiuni condiționale (if / else)
+  // ===============================
+  console.log("=== CONDIȚII ===");
+
+  let nota = 8;
+
+  if (nota >= 5) {
+    console.log("Ai promovat! Felicitări 🎉");
+  } else {
+    console.log("Mai încearcă data viitoare 😅");
+  }
+
+  let ora = 15;
+  if (ora < 12) {
+    console.log("Bună dimineața!");
+  } else if (ora < 18) {
+    console.log("Bună ziua!");
+  } else {
+    console.log("Bună seara!");
+  }
+
+  // ===============================
+  // 5️⃣ Funcții – definiție și apelare
+  // ===============================
+  console.log("=== FUNCȚII ===");
+
+  // Funcție simplă
+  function salut() {
+    console.log("Salut dintr-o funcție!");
+  }
+  salut();
+
+  // Funcție cu parametri
+  function adunare(x, y) {
+    let rezultat = x + y;
+    console.log("Suma lui", x, "și", y, "este:", rezultat);
+  }
+  adunare(5, 7);
+
+  // Funcție care returnează o valoare
+  function patrat(numar) {
+    return numar * numar;
+  }
+
+  let p = patrat(4);
+  console.log("Patratul lui 4 este:", p);
+
+  // Funcție arrow (modernă)
+  const inmultire = (a, b) => a * b;
+  console.log("5 * 6 =", inmultire(5, 6));
+
+  // ===============================
+  // 6️⃣ Exercițiu practic – calcul TVA
+  // ===============================
+  console.log("=== EXERCIȚIU: calcul TVA ===");
+
+  function calculTVA(pret, procentTVA) {
+    return pret + (pret * procentTVA / 100);
+  }
+
+  let produs = "Laptop";
+  let pretFaraTVA = 3000;
+  let pretCuTVA = calculTVA(pretFaraTVA, 19);
+
+  console.log("Produs:", produs);
+  console.log("Preț fără TVA:", pretFaraTVA);
+  console.log("Preț cu TVA:", pretCuTVA);
+
+  // ===============================
+  // 7️⃣ Bucle (for / while)
+  // ===============================
+  console.log("=== BUCLE ===");
+
+  // for
+  for (let i = 1; i <= 5; i++) {
+    console.log("Pasul:", i);
+  }
+
+  // while
+  let j = 0;
+  while (j < 3) {
+    console.log("Iterația:", j);
+    j++;
+  }
+
+  // ===============================
+  // 8️⃣ Exercițiu final – reducere la preț
+  // ===============================
+  console.log("=== EXERCIȚIU FINAL ===");
+
+  function pretFinal(pret, reducere) {
+    return pret - (pret * reducere / 100);
+  }
+
+  let produs2 = "Mouse";
+  let pretInitial = 100;
+  let reducere = 15;
+  let pretReducere = pretFinal(pretInitial, reducere);
+
+  console.log("Produs:", produs2);
+  console.log("Preț inițial:", pretInitial);
+  console.log("Reducere:", reducere + "%");
+  console.log("Preț final:", pretReducere);
+
+  console.log("=== Sfârșitul cursului ===");
+  </script>
+</body>
+</html>
