@@ -1,0 +1,24 @@
+body { font-family: system-ui, Arial, sans-serif; margin:0; background:#f8fafc; }
+header, footer { background:#0f172a; color:#e5e7eb; padding:10px 20px; }
+header h1 { margin:0; font-size:1.4rem; }
+nav a { color:#e5e7eb; text-decoration:none; margin-right:12px; }
+nav a:hover { text-decoration:underline; }
+main { max-width:900px; margin:0 auto; padding:20px; }
+table { border-collapse: collapse; width:100%; margin-top:12px; background:#fff; }
+th, td { border:1px solid #e5e7eb; padding:8px; text-align:left; }
+th { background:#f1f5f9; }
+.btn { display:inline-block; padding:6px 12px; border-radius:6px; border:none;
+               background:#0ea5e9; color:white; text-decoration:none; cursor:pointer; font-size:0.9rem; }
+.btn:hover { background:#0284c7; }
+.card { background:#ffffff; border:1px solid #e5e7eb; border-radius:10px; padding:16px; margin-bottom:16px; }
+.msg { padding:10px; border-radius:8px; margin-bottom:10px; }
+.msg.ok { background:#ecfdf5; border-left:4px solid #16a34a; }
+.msg.err { background:#fef2f2; border-left:4px solid #ef4444; }
+label { display:block; margin-top:8px; }
+input[type="text"], input[type="email"] {
+	width:100%; 
+	padding:8px; 
+	border-radius:6px; 
+	border:1px solid #cbd5e1;
+    box-sizing:border-box;
+}
