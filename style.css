@@ -1,169 +1,244 @@
-/* ========== RESET & BAZE ========== */
-* { box-sizing: border-box; }
-html { font-size: 16px; }
+:root {
+    --fundal-site: #f4f7f6;      
+    --fundal-card: #ffffff;      
+    --culoare-text: #333333;     
+    --text-secundar: #666666;
+    --culoare-accent: #2c3e50;   
+    --culoare-buton: #3498db;    
+    --hover-buton: #2980b9;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #222;
-  background: #ffffff;
-  line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--fundal-site);
+    color: var(--culoare-text);
+    line-height: 1.6;
 }
 
-img { max-width: 100%; height: auto; border-radius: 8px; }
-
-/* Linkuri */
-a { color: #0a6cff; text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* ========== HEADER / FOOTER ========== */
-header, footer {
-  background: #f4f6f8;
-  border-bottom: 1px solid #dcdfe4;
-  padding: 16px;
-  
-}
-footer { border-top: 1px solid #dcdfe4; border-bottom: 0; }
-header h1, footer p { margin: 0; color: blue;}
-
-/* Navigație simplă */
-nav a {
-  display: inline-block;
-  margin-right: 12px;
-  font-weight: bold;
+.header-inalt {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+                url('https://images.unsplash.com/photo-1555881400-74d7acaacd8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+    color: white;
+    padding: 30px 20px 120px 20px; 
+    position: relative; 
+    text-align: center;
 }
 
-/* ========== CONTAINER PAGINĂ ========== */
-.wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 16px;
+.meniu-sus {
+    position: absolute;
+    top: 30px;
+    right: 50px;
 }
 
-/* ========== TITLURI / SECȚIUNI ========== */
-main section {
-  margin-bottom: 28px;
-  padding-bottom: 12px;
-  border-bottom: 1px dashed #dcdfe4;
-}
-h2 { margin: 0 0 10px; color: blue;}
-
-/* ========== TABELE ========== */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-  background: #f23;
-}
-th, td {
-  border: 1px solid #e1e5ea;
-  padding: 8px 10px;
-  text-align: left;
-}
-th { background: #f8fafc; }
-
-/* ===========Liste======*/
-
-ul {
-	list-style: none;
-	/*list-style-image: url('download.png');*/
-}
-li {
-	background-size: 20px 20px;
-	background-repeat: no-repeat;
-	background-image: url('download.png');
-	background-position: 8px center;
-	padding-left: 35px;
-	line-height: 1.5;
-}
-
-/* ========== FORMULAR ========== */
-form { margin-top: 8px; }
-label { font-weight: bold; }
-input[type="text"],
-input[type="email"],
-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #cfd7df;
-  border-radius: 6px;
-  margin-top: 4px;
-}
-button, input[type="submit"] {
-  background: #0a6cff;
-  color: #fff;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-button:hover, input[type="submit"]:hover { background: #0856c7; }
-
- .container {
-	display:flex;
-	justify-content: center;
-	align-items: center;
-}
-/* article {
-	flex-direction: column-reverse;
-    align-items: center;
-    margin: 2%;
-}
-*/
-article{
-	padding: 24px;
-    border: #cbcdfb;
-    border-style: groove;
-    width: 27%;
+.meniu-sus ul {
+    list-style: none;
     display: flex;
-    flex-direction: column-reverse;
+    gap: 30px;
+}
+
+.meniu-sus a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.meniu-sus a:hover {
+    color: var(--culoare-buton);
+}
+
+.continut-erou {
+    margin-top: 80px; 
+}
+
+.continut-erou h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.continut-erou p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+}
+
+.zona-cautare-mare {
+    display: flex;
+    max-width: 700px; 
+    margin: 0 auto;
+    background: white;
+    padding: 8px;
+    border-radius: 50px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.zona-cautare-mare input {
+    flex: 1; 
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    border-radius: 50px 0 0 50px;
+    outline: none;
+    color: var(--culoare-text);
+}
+
+.zona-cautare-mare button {
+    background-color: var(--culoare-buton);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.zona-cautare-mare button:hover {
+    background-color: var(--hover-buton);
+}
+
+main {
+    max-width: 1300px;
+    margin: -60px auto 40px auto; 
+    padding: 0 20px;
+    position: relative; 
+    z-index: 10;
+}
+
+.detalii-container {
+    display: flex;
+    gap: 20px;
+}
+
+.card-info {
+    background: var(--fundal-card);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.antet-tara-nou {
+    flex: 0.8; 
+}
+
+.vreme-box {
+    flex: 1.4; 
+}
+
+.istorie-box {
+    flex: 1; 
+}
+
+.card-info h3, .antet-tara-nou h2 {
+    color: var(--culoare-accent);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--fundal-site);
+    padding-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.antet-tara-nou h2 {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 5px;
+}
+
+.steag-mic {
+    width: 70px; 
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.info-scurta p {
+    margin-bottom: 8px;
+    border-bottom: 1px solid #f9f9f9;
+    padding-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.prognoza-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.linie-vreme {
+    display: flex;
     align-items: center;
-    margin: 2% auto; /* auto pentru stânga-dreapta */
+    gap: 15px;
 }
 
-.muted { color: #666; font-size: 0.9rem; }
-
-/* ========== ASIDE (SIDEBAR) ========== */
-aside {
-  background: #ffffff;
-  border: 1px solid #dcdfe4;
-  border-radius: 10px;
-  padding: 16px;
-}
-aside h3 { margin-top: 0; }
-
-/* etichete (chips) */
-.chip {
-  display: inline-block;
-  font-size: 12px;
-  padding: 4px 8px;
-  border: 1px solid #dcdfe4;
-  border-radius: 999px;
-  margin: 0 6px 6px 0;
-  background: #fbfdff;
+.linie-vreme .label {
+    font-weight: bold;
+    color: var(--text-secundar);
+    width: 80px; 
+    font-size: 0.85rem;
+    text-transform: uppercase;
 }
 
-/* ========== LINK TOP ========== */
-.back-top {
-  display: inline-block;
-  margin-top: 16px;
-  font-weight: bold;
+.linie-vreme .valori {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
-/* ========== LAYOUT RESPONSIVE BASIC ========== */
-/* Implicit (mobil): elementele sunt stivuite */
-#content, aside { width: 100%; }
+.valori span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
 
-/* Pe ecrane mai late, punem două coloane cu inline-block */
-@media (min-width: 900px) {
-  #content {
-    display: inline-block;
-    width: 68%;
-    vertical-align: top;
-    margin-right: 2%;
-  }
-  aside {
-    display: inline-block;
-    width: 30%;
-    vertical-align: top;
-  }
+.separator-vreme {
+    height: 1px;
+    background: #eee;
+    margin: 15px 0;
+}
+
+.istorie-box p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-secundar);
+    text-align: justify;
+    margin-bottom: auto; 
+}
+
+#salveazaFavorit {
+    background: transparent;
+    color: var(--culoare-accent);
+    border: 2px solid var(--culoare-accent);
+    padding: 10px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#salveazaFavorit:hover {
+    background: var(--culoare-accent);
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-secundar);
+    font-size: 0.9rem;
 }
