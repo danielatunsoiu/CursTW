@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Geografic Interactiv</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header-inalt">
+        <nav class="meniu-sus">
+            <ul>
+                <li><a href="#">Acasa</a></li>
+                <li><a href="#">Favorite</a></li>
+            </ul>
+        </nav>
+
+        <div class="continut-erou">
+            <h1>Atlas Geografic & Turistic</h1>
+            <p>Descoperă Europa dintr-un singur click!</p>
+            
+            <form class="zona-cautare-mare" action="roma.html">
+                <input type="text" id="cautaTara" placeholder="Caută o țară (ex: Spania)..." required>
+                <button type="submit" id="butonCauta">Exploreaza</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <section id="profil-tara">
+            
+            <div class="detalii-container">
+                
+                <article class="card-info antet-tara-nou">
+                    <img src="https://flagcdn.com/w320/es.png" alt="Steagul Spaniei" class="steag-mic">
+                    <h2 id="numeTara">Spania</h2>
+                    <div class="info-scurta">
+                        <p><strong>Capitala:</strong> Madrid</p>
+                        <p><strong>Moneda:</strong> Euro (EUR)</p>
+                        <p><strong>Limba:</strong> Spaniola</p>
+                        <p><strong>Populatie:</strong> 47M</p>
+                    </div>
+                </article>
+
+                <article class="card-info vreme-box">
+                    <h3>Vremea (7 Zile)</h3>
+                    <div class="prognoza-container">
+                        
+                        <div class="linie-vreme">
+                            <span class="label">ZI (°C)</span>
+                            <div class="valori">
+                                <span><i>☀️</i> 22</span>
+                                <span><i>☀️</i> 24</span>
+                                <span><i>⛅</i> 21</span>
+                                <span><i>☀️</i> 25</span>
+                                <span><i>🌧️</i> 18</span>
+                                <span><i>☀️</i> 23</span>
+                                <span><i>☀️</i> 22</span>
+                            </div>
+                        </div>
+                        
+                        <div class="separator-vreme"></div>
+                        
+                        <div class="linie-vreme">
+                            <span class="label">NOAPTE (°C)</span>
+                            <div class="valori">
+                                <span><i>🌙</i> 15</span>
+                                <span><i>🌙</i> 16</span>
+                                <span><i>☁️</i> 14</span>
+                                <span><i>🌙</i> 17</span>
+                                <span><i>🌧️</i> 12</span>
+                                <span><i>🌙</i> 15</span>
+                                <span><i>🌙</i> 14</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </article>
+
+                <article class="card-info istorie-box">
+                    <h3>Scurt Istoric & Cultura</h3>
+                    <p id="textWikipedia">
+                        Spania este o tara cu o istorie fascinanta, de la Imperiul Roman pana la perioada de aur a explorarilor maritime. Este recunoscuta mondial pentru diversitatea sa culturala, de la arhitectura maura din Andaluzia pana la modernismul lui Gaudi in Barcelona. Cultura spaniola este definita prin pasiune, reflectata in arta Flamenco si traditiile gastronomice (Tapas).
+                    </p>
+                    <button id="salveazaFavorit">Salveaza in Favorite</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Proiect Atestat - Atlas Geografic Interactiv</p>
+    </footer>
+
+</body>
+</html>
